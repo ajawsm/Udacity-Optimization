@@ -1,0 +1,4 @@
+# 1 Month cache static assets
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+Header set Cache-Control "max-access=2592000", public"
+</filesMatch>
