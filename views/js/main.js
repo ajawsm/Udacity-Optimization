@@ -463,7 +463,7 @@ for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   requestAnimationFrame(function(){
   pizzasDiv.appendChild(pizzaElementGenerator(i)); // added requestAnimationFrame
-};
+});
 }
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
