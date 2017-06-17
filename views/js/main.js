@@ -441,7 +441,7 @@ var resizePizzas = function(size) {
       default:
       console.log("bug in sizeSwitcher");
     }
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas = document.getElementsByClassName(".randomPizzaContainer");
 
     for (var i=0; i < randomPizzas.length; i++){
       randomPizzas[i].style.width = newWidth + '%';
@@ -463,6 +463,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 // This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
+  pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
 requestAnimationFrame(function(){
@@ -498,8 +499,8 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
     frame++;
     window.performance.mark("mark_start_frame");
     var lastY = 0;
-    var frameHeight = 1250;
-    var phase = Math.sin(lastY + window.scrollY / frameHeight);
+    var frameHeight = self.innerHeight;
+    var phase = Math.sin((lastY + window.scrollY) / frameHeight);
 
     var items = document.querySelectorAll('.mover');
     for (var i = 0; i < items.length; i++) {
@@ -528,8 +529,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var src = "images/pizza.png";
   var pizzaHeight = "100px";
   var pizzaWidth = "73.333px";
+  var numPizzas = self.innerHeight / 33.3; //height of screen divided by container  of 33.3%
 
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < numPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = className;
     elem.src = src;
