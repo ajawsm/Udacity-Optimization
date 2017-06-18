@@ -45,5 +45,7 @@ Finally, I changed the number of pizzas generated to reflect the viewport height
 no matter the size when the page was loaded, but when expanding the viewport, it was
 clear that extra pizzas were not generated.
 
+I also improved performance by changing the use of _querySelector_ to _getElementById_ and _querySelectorAll_ to _getElementsByClassName_, at the suggestion of the reviewers.
+
 To validate my changes, I reviewed in DevTools and the console code driven by the
 timing scripts.
